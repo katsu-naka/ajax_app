@@ -4,6 +4,9 @@
   <%= form.submit '投稿する' , id: "submit" %>
 <% end %>
 
+<div id="list">
+</div>
+
 <% @posts.each do |post| %>
   <%#この部分をクリックした時にイベント発火させたい %>
   <div class="post" data-id=<%= post.id%> data-check=<%= post.checked %>> <%#postクラスを指定して要素を取得%>
