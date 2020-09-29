@@ -9,14 +9,14 @@ class PostsController < ApplicationController
   end
   #既読操作を行った時に実行されるアクション
   def checked
-    post = Post.find(params[:id]) #URLパラメーターから取得した既読メモのidをpostに代入する
-    if post.checked#postに代入されたメモの既読の有無を判定するプロパティを指定
-      post.update(checked: false)#既読であれば既読の解除のためfalseへ変更
+    post = Post.find(params[:id])
+    if post.checked 
+      post.update(checked: false)
     else
-      post.update(checked: true)#既読でなければ既読にするためにtrueに変更する
+      post.update(checked: true)
     end
 
-    item = Post.find(params[:id]) #上記で更新したレコードを取得し直しitemに代入
-    render json: { post: item } #JSON形式のデータとしてchecked.jsにレスポンスする。
+    item = Post.find(params[:id])
+    render json: { post: item }
   end
 end
