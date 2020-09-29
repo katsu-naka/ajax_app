@@ -4,8 +4,8 @@ class PostsController < ApplicationController
   end  
   
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index #メモを保存した後はトップページへリダイレクトする
+    post = Post.create(content: params[:content],checked: false)
+    render json:{ post: post}
   end
   #既読操作を行った時に実行されるアクション
   def checked
